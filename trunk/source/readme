@@ -1,0 +1,5 @@
+para compilar:
+
+g++ -lsqlite3 prueba.cpp -o nombre_del_ejecutable
+
+Necesitas tener instalados los paquetes g++ y libsqlite3-dev
