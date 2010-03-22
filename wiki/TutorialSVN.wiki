@@ -1,0 +1,127 @@
+#labels svn,tutorial
+Esto pretende ser una guía en el uso de SVN para desarrolladores de software que no lo han usado nunca para programar. Muestro las principales funciones básicas de SVN, suficientes para poder coordinar el proyecto. Pero no todas, muchas funciones avanzadas deberán ser aprendidas por el usuario más adelante.
+
+<wiki:toc max_depth="2" />
+
+= Windows =
+
+Baja e instala el instalador para 32 o 64 bits de [http://tortoisesvn.net/downloads Tortoise SVN], el cliente svn más popular de windows. Si quieres tenerlo en español baja el ejecutable traductor al español de ese mismo enlace y una vez instalado en las opciones del programa cambia el idioma a español.
+
+== Checkout - Obtener==
+
+Comencemos con un checkout. Este se utiliza para obtener el código fuente en el que se va a trabajar desde la página web. Como ese código posteriormente queda en el disco duro solo hay que hacer el checkout una sola vez, y no tendrás que volver a hacerlo a no ser que cambies de ordenador, formatees o borres el código.
+
+*Procedimiento:* Pulsa con el segundo botón del ratón en la carpeta en la que quieras tener el código, entonces pulsa en "SVN Checkout..". Luego introduce la carpeta de trabajo (trunk) SVN del proyecto:
+
+_https://pruebas-dai.googlecode.com/svn/trunk/_
+
+Elige el nombre de la carpeta, que revisión quieres bajar (lo normal es que bajes la ultima revisión que será la más actualizada, pero puedes elegir una revisión antigua o incluso ver el log de revisiones con sus cambios en esta parte).
+
+Una vez empiece a descargar te pedirá usuario y contraseña (le hemos forzado a pedirla con el _https_) en la que tendrás que poner tu usuario de Google y tu contraseña de google code que puedes ver en "Settings" al inicio de página si estás logeado en google code.
+
+== Update - Actualizar ==
+
+El código siempre va a estar guardado en tu ordenador desde el checkout, para cuando quieras ponerte a programar un ratillo. Pero es importante que antes de ponerte a programar compruebes si alguno de los otros programadores ha hecho algún cambio en este.
+
+*Procedimiento:* Pulsa con el segundo botón del ratón en la carpeta del código fuente y selecciona "SVN update..". Si hay una revisión nueva esta se actualizará, en la pantalla de actualización pulsa "show log/mostrar registro" para ver que archivos se han cambiado en la nueva revisión.
+
+== Commit - Confirmar ==
+
+El commit sirve para enviar tus cambios de código al repositorio una vez creas que está listo y funcional. Es recomendable que antes de hacer el commit hagas un update como en el paso anterior. Si ha habido cambios por otro usuario mientras editabas el código y hay conflictos el svn fusionará los cambios de una forma inteligente.
+
+*Procedimiento:* Pulsa con el segundo botón del ratón en lo que quieras subir al repositorio y pulsa en "SVN commit". Así si seleccionas la carpeta superior lo mandas todo, y si seleccionas un archivo, un grupo de archivos o subcarpetas mandas solo esos archivos en el commit. Si estás metiendo archivos nuevos (marcados con interrogación en lugar de un tick verde) te preguntará de añadirlos al repositorio o puedes añadirlos antes a mano con TortoiseSVN/Add.
+
+== Otros ==
+Otras funciones interesantes para usar desde el menú TortoiseSVN al hacer doble click.
+  * *Show Log Mostrar registro (en carpeta)*: Muestra el historial de revisiones con que archivos se modificaron/añadieron/etc en cada revisión y con el mensaje de commit que dejó el usuario. Con el segundo botón del ratón puedes hacer diffs entre cada revisión (te mostrará las diferencias de texto entre los archivos modificados).También puedes hacerlo de forma más simple desde [http://code.google.com/p/pruebas-dai/source/changes/ el websvn changes de google code]
+  * *Show Log Mostrar registro (en un archivo)*: Igual que el anterior muestra todas las revisiones pero solo para ese archivo. Puedes comparar la versión actual con la que quieras pulsando el segundo botón y Diff.
+  * *Diff with previuos version (en un archivo)*: Hace un Diff de ese archivo de texto con la anterior versión de este y te dice en que se diferencia el documento linea a linea. Importante si quieres saber que ha modificado cualquiera de los otros miembros.
+  * *Navegar repositorio {{{RepoBrowser}}}*: Navegas por los archivos y carpetas del repositorio actual como si fuese el explorer de windows. Puede ser útil ya que te dice en que revisión fue modificado cada uno de los archivos y además te permite ver datos de estos. También puedes hacerlo de forma más simple desde [http://code.google.com/p/pruebas-dai/source/browse/ el websvn browse de google code]
+= GNU/LInux =
+Instala Subversion desde el gestor de paquetes de tu distribución.
+
+== Checkout ==
+
+Lo primero es hacer un checkout para obtener una copia del código almacenado en el repositorio del hosting. Esto solo hay que hacerlo una vez ya que se guarda en el disco duro, a no ser que lo borres, formatees y demás. Con esto obtienes la última revisión del código en el escritorio (cambia la ruta de descarga según veas):
+
+*$svn checkout https://pruebas-dai.googlecode.com/svn/trunk/ Desktop/pruebas-dai --username TU_USUARIO*
+
+tienes que colocar tu usuario de Google, y te pedirá tu contraseña generada por Google Code que se encuentra en "Settings" a inicio de página.
+
+== Actualizando ==
+
+Cada vez que vayas a programar es importante que actualices el código para que no haya conflicto con código que haya mandado otro desarrollador. Estando dentro de una carpteta haz:
+
+*$ svn update*
+
+== Trabajando en el código ==
+
+Ahora solo tienes que ponerte a trabajar en el código con tu editor de texto favorito o IDE gráfico. Aún así hay unos comandos útiles a manejar durante el proceso de programación:
+
+*$ svn add archivo/s, carpeta/s o enlace*
+Cuando añadas un archivo nuevo a la carpeta de trabajo tienes que añadirlo al proyecto para poder ser enviado en el commit cuando hayas terminado con el código. Así que acuerdate de correr este comando siempre que metas un archivo nuevo.
+
+*$ svn delete archivo/s, carpeta/s o enlace* Lo borra del proyecto y del disco duro.
+
+*$ svn copy origen destino* Crea una copia del fichero y lo añade al proyecto para el próximo commit
+
+*$ svn move origen destino* Técnicamente crea una copia del archivo, borra el original con svn remove, y añade el nuevo con svn add. Su utilidad es mover rápidamente archivos entre las distintas carpetas.
+
+*$ svn status* Comando muy útil para visualizar la carpeta de trabajo antes de hacer el commit y enviar el código. Devuelve el estado de los archivos en la carpeta que te hayas y sus subdirectorios, por lo que para obtener una visión global es necesiario utilizarlo en el directorio superior de trabajo. Por ejemplo muestra una A si el archivo ha sido añadido con Add, una M si lo has editado, una C si presenta conflictos porque alguien ha enviado código del mismo archivo que tú mientras editabas, una ? si aun no lo añadiste con svn add, etc. Para ver el significado de cada una de las letras, ejecuta svn help status). Este comando es uno de los que más se usan y viene muy bien para visualizar el trabajo.
+
+*$ svn diff* Devuelve las diferencias linea a linea entre los archivos de tu carpeta de trabajo y los del repositorio. Si se añade un archivo al comando mostrará solo la diferencia para ese archivo en lugar de para todos. Muy útil antes de ponerte a trabajar para ver que lineas del código han cambiado los demás programadores. Una vez trabajando también es útil como resumen de los cambios que has hecho. Si la salida en consola es muy larga puedes redireccionarlo a un archivo con $svn diff >> archivo y abrirlo con un editor gráfico.
+
+*$ svn revert archivo* Revierte los cambios que hiciste en el archivo, por si te equivocaste o has cambiado de idea volviéndolos a su revisión original.
+
+== Commit - Enviar los cambios realizados ==
+
+Bien, una vez tienes el código listo para ser enviado es el momento de hacer el Commit. Pero lo primero es hacer un *svn update* El update no solo es útil al empezar a trabajar, sino que también lo es al terminal. Una vez hagas el svn update te avisará si tu código entra en conflicto con el de otro programador porque os habéis puesto a trabajar simultáneamente en el mismo archivo y él ha enviado el commit antes (no es raro, ya que se puede tener un archivo sin enviar días mientras se trabaja en él). Puedes hacer que svn fusione de forma inteligente tus cambios y los suyos con:
+
+*$ svn resolved archivo_conflictivo*
+
+Dos comandos mencionados anteriormente son útiles aquí. Un *svn status* te dará una visión exacta de tu carpeta de trabajo. Un *svn diff* para comparar tus archivos con los del repositorio.
+
+*$svn commit* Y por fin llegamos al commit. Este comando sube los cambios de tu carpeta de trabajo al repositorio y aumentando en 1 el número de la revisión, quedando por fin tu trabajo guardado.
+
+*$ svn commit --message "mensaje"* Igual que el anterior pero dejas un comentario sobre los cambios realizados en el Log. Es importante usar siempre este comando en lugar del anterior con un breve resumen de que has estado haciendo. Así navegar posteriormente por las revisiones se vuelve más sencillo.
+
+Ya solo nos queda hacer un *svn update* antes de volver a empezar a trabajar.
+
+== Otros ==
+
+*$ svn log* Muestra todas las revisiones con los comentarios adjuntos a cada una. También puedes hacerlo a través [http://code.google.com/p/pruebas-dai/source/changes/ del websvn changes de google code].
+
+*$ svn log archivo* Igual que el anterior pero muestra los cambios de código de un solo archivo en lugar de toda la carpeta.
+
+*$ svn list* Es como hacer un "ls" de unix, pero en el repositorio de internet. Te devuelve el listado de archivos que haya en la última revisión del repositorio sin importar lo que tengas en el disco duro. Tiene tres opciones importantes:
+  * *-r REVISION* Especificas de que revisión quieres hacerlo añadiendo al final "-r REVISION" (por ejemplo "svn list -r 9")
+  * * -v* verbose. Esta opción es muy importante ya que además de listas los archivos te dice que programador fue el último que los edito y desde que revision no se ha modificado cada archivo.
+  * * -R* Recursive. Muestra también los archivos de las subcarpetas. Así *svn list -vR* puede decirse que es la orden estándar para ver detalladamente el repositorio. Ese comando también puedes visualizarlo a través [http://code.google.com/p/pruebas-dai/source/browse/ del websvn browse de google code]. (obviamente los tres comandos se puedes combinar dejando "-r" al final, por ejemplo "svn list -vRr 9")
+
+*$ svn cat -r REVISION archivo* Imprime en la consola todas las lineas de texto de un archivo en una revisión en concreto. POr ejemplo "svn cat -r 9 dado.py >> archivo" muestra el código que tenía el archivo dado.py en la revisión número 9 y lo envía a un documento llamado "archivo".
+
+*$ svn help comando* Muestra la ayuda para ese comando en cuestión. Por ejemplo "svn help add" "svn help commit" "svn help status", etc.
+
+== GUIs ==
+
+Hay múltiples GUIs para SVN por internet, algunas integradas con Konqueror o Nautilus igual que hace TortoiseSVN en windows, otras son programas, y algunas vienen incrustadas en programas de programación como Emacs o Eclipse. Aún así recomiendo practicar con el cliente de terminal ya que manejándolo bien es rápido y eficiente.
+
+= Wiki por SVN =
+
+Los archivos del wiki, así como la carpeta branches (ramas alternativas) también se pueden obtener haciendo un checkout subiendo un directorio. Es decir quitando el trunk:
+
+svn checkout https://pruebas-dai.googlecode.com/svn/ pruebas-dai
+
+De esta forma obtienes todo desde un directorio superior, consiguiendo las carpetas Trunk, Branches y Wiki. Si ahora revisas el historial de revisiones con un "svn log" verás también las revisiones correspondientes a editar los archivos del wiki, que no se muestran cuando solo bajas el trunk.
+
+= Obtener Anónimamente =
+
+Para hacer un checkout de forma anónima (solo lectura) basta con pedir el código con http básico. Con un simple:
+
+svn checkout *http*://pruebas-dai.googlecode.com/svn/trunk/ pruebas-dai-read-only
+
+o para obtener tambien la wiki y branches:
+
+svn checkout *http*://pruebas-dai.googlecode.com/svn/ pruebas-dai-read-only
+
+Aunque un anónimo no puede enviar commits puede hacer cambios en el código y utilizar la utilidad de SVN para crear un parche y enviar ese parche al proyecto a través del correo electrónico. También puede pedir unirse al proyecto si tiene mucho interés.
