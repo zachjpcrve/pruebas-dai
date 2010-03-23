@@ -11,7 +11,8 @@ int main(){
 	int result = 0;     // Guardará los exitos o fracasos de los comandos como codigo INT. http://www.sqlite.org/c3ref/c_abort.html
 	char *error = 0;    // Guardará los exitos o fracasos de los comandos con una cadena de texto con el error concreto detallado.
 	char sql[100];	// Usaremos está variable para almacenar las consultas que realizaremos a la base de datos.
-
+	sqlite3_stmt *datos; // Los objetos "stmt" de sqlite almacenan los datos obetenidos de la consulta realizada.
+	
 	/* 
 	 *  Abro el archivo de la base de datos y lo meto en el objeto de tipo base de datos. Si no existe el archivo lo recreará así que funcionará 		
 	 *  igualmente. Solo devolverá error (result==1) si no tiene permisos de escritura al intentar crear el archivo. En ese caso cierro el programa.
@@ -72,8 +73,7 @@ int main(){
 			goto menu; // si me viera angel xD		
 			break;
 		case 2:
-			// En este case cojemos información de la base de datos en lugar de introducir. En este caso uso las secuencias: prepare, step, finalize.
-			sqlite3_stmt *datos; // Los objetos "stmt" de sqlite almacenan los datos obetenidos de la consulta realizada.
+			// En este caso cojemos información de la base de datos en lugar de introducir. En este caso uso las secuencias: prepare, step, finalize.
 			strcpy(sql,"select * from tabla1;");			
 
 			// Prepare hace la consulta y la guarda en un objeto de tipo STMT.
