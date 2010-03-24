@@ -69,7 +69,10 @@ Cuando añadas un archivo nuevo a la carpeta de trabajo tienes que añadirlo al 
 
 *$ svn status* Comando muy útil para visualizar la carpeta de trabajo antes de hacer el commit y enviar el código. Devuelve el estado de los archivos en la carpeta que te hayas y sus subdirectorios, por lo que para obtener una visión global es necesiario utilizarlo en el directorio superior de trabajo. Por ejemplo muestra una A si el archivo ha sido añadido con Add, una M si lo has editado, una C si presenta conflictos porque alguien ha enviado código del mismo archivo que tú mientras editabas, una ? si aun no lo añadiste con svn add, etc. Para ver el significado de cada una de las letras, ejecuta svn help status). Este comando es uno de los que más se usan y viene muy bien para visualizar el trabajo.
 
-*$ svn diff* Devuelve las diferencias linea a linea entre los archivos de tu carpeta de trabajo y los del repositorio. Si se añade un archivo al comando mostrará solo la diferencia para ese archivo en lugar de para todos. Muy útil antes de ponerte a trabajar para ver que lineas del código han cambiado los demás programadores. Una vez trabajando también es útil como resumen de los cambios que has hecho. Si la salida en consola es muy larga puedes redireccionarlo a un archivo con $svn diff >> archivo y abrirlo con un editor gráfico.
+*$ svn diff* Devuelve las diferencias linea a linea entre los archivos de tu carpeta de trabajo y los del repositorio. Si se añade un archivo al comando mostrará solo la diferencia para ese archivo en lugar de para todos. Muy útil antes de ponerte a trabajar para ver que lineas del código han cambiado los demás programadores. Una vez trabajando también es útil como resumen de los cambios que has hecho. Si la salida en consola es muy larga puedes redireccionarlo a un archivo con $svn diff >> archivo y abrirlo con un editor gráfico. Ejemplos:
+  * * svn diff (compara todos los archivos del disco duro con la ultima revision)
+  * * svn diff prueba.cpp (compara el archivo del disco duro con la ultima revision)
+  * * svn diff prueba.cpp -r 8   (compara el archivo del disco duro con revision8)
 
 *$ svn revert archivo* Revierte los cambios que hiciste en el archivo, por si te equivocaste o has cambiado de idea volviéndolos a su revisión original.
 
