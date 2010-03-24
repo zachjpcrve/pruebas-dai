@@ -49,15 +49,14 @@ void menu(sqlite3* miDB){
 	sqlite3_stmt *datos;  	 // Los objetos "stmt" de sqlite almacenan los datos obetenidos de la consulta realizada.
 	
 	char opcion;	
-	cout << endl << "Elige un numero: (No metas letras! xD)" << endl;
+	cout << endl << "Elige un numero:" << endl;
 	cout << "1) Introducir nueva operacion" << endl;
 	cout << "2) Mostrar Historial de operaciones" << endl;
-	cout << "3) Salir" << endl;
-	cout << "4) Borrar historial" << endl;
+	cout << "3) Borrar historial" << endl;
+	cout << "4) Salir" << endl;
 	cin >> opcion;
 
 	while(int(opcion)<49 || int(opcion)>52){
-		//clrscr();		
 		system("clear");
 		return menu(miDB); 
 	}
@@ -75,7 +74,7 @@ void menu(sqlite3* miDB){
 			cout << "Introduce el segundo numero entero de la operacion:" << endl; //Hay que hacer que esta linea no salga siempre
 			cin >> temp;
 			numero2=numerear(temp);				//creo numero2
-			//delete(temp);
+		   temp=NULL;
 	
 			cout << endl << "================================" << endl;
 			result = imprimir_operacion(numero1,numero2,signo); // imprimo la operación. True si el usuario metio mal el signo.
@@ -124,22 +123,17 @@ void menu(sqlite3* miDB){
 			sqlite3_finalize(datos);		// Finalizamos la consulta y destruimos el objeto stmt datos.
 			menu(miDB);
 			return;
-		case 3:
-			return;
-		case 4:
+	   case 3:
 			result = sqlite3_exec(miDB, "delete from tabla1;", NULL, NULL, &error);
 			if(result) cout << "Error: " << error << endl;		
 			cout << "Limpiando el historial" <<endl;
-			sleep(2);
+			sleep(1);
 			cout << "Historial borrado" << endl;
+			menu(miDB);
 			return;	
-		default:
-			if(opcion!=1 || opcion!=2 || opcion!=3){
-				cout << "intruduzca una opcion valida" << endl;
-				return;			
-			}		
+		case 4:
+			return;
 	}
-	return;
 	
 }
 
