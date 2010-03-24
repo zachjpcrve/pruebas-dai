@@ -1,0 +1,10 @@
+Este programa se puede compilar en Linux / Mac / Windows.
+
+Dependencias:
+- Compilador (g++ funciona bien en linux/windows/mac, aunque se pueden usar otros).
+- WxWidgets 2.8 DEV   (en Debian/Ubuntu con APT: libwxgtk2.8-dev) (Descarga manual: http://www.wxwidgets.org/downloads/)
+
+Compilación con G++:
+
+g++ hola_mundo.cpp `wx-config --libs` `wx-config --cxxflags` -o nombre_de_archivo
+
