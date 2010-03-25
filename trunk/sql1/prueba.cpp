@@ -6,14 +6,15 @@
 
 using namespace std;
 
-void menu(sqlite3*);
 bool imprimir_operacion(int number1, int number2, char sign);
 int numerear(char* introducido);
 
 int main(){
-	sqlite3 *miDB;	            // Creo un objeto de tipo sqlite para interactuar con la base de datos.
-	int result = 0;             // Guardará los exitos o fracasos de los comandos como codigo INT. http://www.sqlite.org/c3ref/c_abort.html
-	
+	sqlite3 *miDB;	         // Creo un objeto de tipo sqlite para interactuar con la base de datos.
+	int result = 0;          // Guardará los exitos o fracasos de los comandos como codigo INT. http://www.sqlite.org/c3ref/c_abort.html
+	char *error = 0;         // Guardará los exitos o fracasos de los comandos con una cadena de texto con el error concreto detallado.  
+	char sql[100];	         // Usaremos está variable para almacenar las consultas que realizaremos a la base de datos.  
+	sqlite3_stmt *datos;  	 // Los objetos "stmt" de sqlite almacenan los datos obetenidos de la consulta realizada.	
 	/* 
 	 *  Abro el archivo de la base de datos y lo meto en el objeto de tipo base de datos. Si no existe el archivo lo recreará así que funcionará 		
 	 *  igualmente. Solo devolverá error (result==1) si no tiene permisos de escritura al intentar crear el archivo. En ese caso cierro el programa.
@@ -32,49 +33,30 @@ int main(){
 	result = sqlite3_exec(miDB,"create table if not exists tabla1(numero1 int, numero2 int, signo varchar(1));",NULL,NULL,NULL ); 
 	
 	// Menu principal	
-	menu(miDB);
-	
-	sqlite3_close(miDB);	//cerramos la base de datos
-	return 0;
-	
-}
-//--------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------
 
-void menu(sqlite3* miDB){
-	
-	int result = 0;          // Guardará los exitos o fracasos de los comandos como codigo INT. http://www.sqlite.org/c3ref/c_abort.html
-	char *error = 0;         // Guardará los exitos o fracasos de los comandos con una cadena de texto con el error concreto detallado.  
-	char sql[100];	         // Usaremos está variable para almacenar las consultas que realizaremos a la base de datos.  
-	sqlite3_stmt *datos;  	 // Los objetos "stmt" de sqlite almacenan los datos obetenidos de la consulta realizada.
-	
-	char opcion;	
-	cout << endl << "Elige un numero:" << endl;
-	cout << "1) Introducir nueva operacion" << endl;
-	cout << "2) Mostrar Historial de operaciones" << endl;
-	cout << "3) Borrar historial" << endl;
-	cout << "4) Salir" << endl;
-	cin >> opcion;
-
-	while(int(opcion)<49 || int(opcion)>52){
-		system("clear");
-		return menu(miDB); 
-	}
-
-	switch(int(opcion)-48){
-		case 1:			
-			char signo, *temp;
+	string opcion;
+	while(opcion != "4"){
+		cout << endl << "Elige una opcion:" << endl;
+		cout << "1) Introducir nueva operacion" << endl;
+		cout << "2) Mostrar Historial de operaciones" << endl;
+		cout << "3) Borrar historial" << endl;
+		cout << "4) Salir" << endl;
+		cin >> opcion;
+		
+		if(opcion=="1"){
+			char signo;//, *temp;
 			int numero1,numero2;
+			string temp;
 			
 			cout << endl << "Introduce el primer numero entero de la operacion:" << endl;
-			cin >> temp;
-			numero1=numerear(temp);				//creo numero1
+			cin >> numero1;
+
+			//numero1=numerear(temp);				//creo numero1
 			cout << "Introduce un signo: + - * / y el segundo numero entero" << endl;
 			cin >> signo;
 			cout << "Introduce el segundo numero entero de la operacion:" << endl; //Hay que hacer que esta linea no salga siempre
-			cin >> temp;
-			numero2=numerear(temp);				//creo numero2
-		   temp=NULL;
+			cin >> numero2;
+			//numero2=numerear(temp);				//creo numero2
 	
 			cout << endl << "================================" << endl;
 			result = imprimir_operacion(numero1,numero2,signo); // imprimo la operación. True si el usuario metio mal el signo.
@@ -85,27 +67,26 @@ void menu(sqlite3* miDB){
 			/*
 			*   Introducimos los dos numeros y el signo en la tabla con "insert into". result puede ir de 0-30 (posibles errores) así que usaremos
 			*	 variable 'error' para almacenar el error en concreto como texto. 		
-		   */
+		    */
 				sprintf(sql,"insert into tabla1 values(%d,%d,'%c');",numero1,numero2,signo); //Concatenacion.
 				result = sqlite3_exec(miDB,sql,NULL,NULL,&error);
 				if(result){
 					sqlite3_close(miDB);
 					cout << "error: " << error << endl;
-					return;
+					continue;
 				}			
 			} 
-			
-			menu(miDB);
-			return;
-		case 2:
+		}
+		else if(opcion=="2"){
 			// En este caso cojemos información de la base de datos en lugar de introducir. En este caso uso las secuencias: prepare, step, finalize.
 			strcpy(sql,"select * from tabla1;");			
 
 			// Prepare hace la consulta y la guarda en un objeto de tipo STMT.
 			result = sqlite3_prepare(miDB, sql, strlen(sql), &datos, NULL);
-        	if(result != SQLITE_OK)		
-         	cout << "SQL error:" << sqlite3_errmsg(miDB);	// Otra forma de obtener errores. sqlite3_errmsg recuerda el ultimo error de la DB.
-      
+        	if(result != SQLITE_OK){		
+				cout << "SQL error:" << sqlite3_errmsg(miDB);	// Otra forma de obtener errores. sqlite3_errmsg recuerda el ultimo error de la DB.
+				continue;
+			}
         	cout << endl << "================================" << endl;
 			result = sqlite3_step(datos);	// Avanzamos una fila (la primera fila tiene los nombres de las columnas y no nos interesa)
 			//ncolumnas = sqlite3_column_count(datos); 	// Contamos el numero de columnas de la tabla STMT.
@@ -121,22 +102,25 @@ void menu(sqlite3* miDB){
 			}
 			cout << "================================" << endl;
 			sqlite3_finalize(datos);		// Finalizamos la consulta y destruimos el objeto stmt datos.
-			menu(miDB);
-			return;
-	   case 3:
+		}
+		else if(opcion=="3"){
 			result = sqlite3_exec(miDB, "delete from tabla1;", NULL, NULL, &error);
-			if(result) cout << "Error: " << error << endl;		
-			cout << "Limpiando el historial" <<endl;
-			sleep(1);
-			cout << "Historial borrado" << endl;
-			menu(miDB);
-			return;	
-		case 4:
-			return;
+			if(result) cout << "Error: " << error << endl;
+			else{
+				cout << "Limpiando el historial" <<endl;
+				sleep(1);
+				cout << "Historial borrado" << endl;	
+			}
+		}
 	}
 	
+	//menu(miDB);
+	
+	sqlite3_close(miDB);	//cerramos la base de datos
+	return 0;
+	
 }
-
+//--------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------
 
 bool imprimir_operacion(int number1, int number2, char sign){
