@@ -1,4 +1,4 @@
-#labels wxwidgets,documentacion
+#labels wxwidgets,documentacion,Phase-Implementation
 == Listas de Clases de WX ==
 
  * [http://wiki.wxwidgets.org/Official_Classes]
