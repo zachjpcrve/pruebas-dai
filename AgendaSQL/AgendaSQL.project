@@ -10,12 +10,14 @@
   <VirtualDirectory Name="src">
     <File Name="gui.cpp"/>
     <File Name="main.cpp"/>
-    <File Name="cassContacto.cpp"/>
+    <File Name="ClassAgenda.cpp"/>
+    <File Name="ClassContacto.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
     <File Name="gui.h"/>
     <File Name="main.h"/>
-    <File Name="cassContacto.h"/>
+    <File Name="ClassAgenda.h"/>
+    <File Name="ClassContacto.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="resources">
     <File Name="gui.fbp"/>

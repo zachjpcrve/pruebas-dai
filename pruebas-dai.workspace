@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CodeLite_Workspace Name="pruebas-dai" Database="./pruebas-dai.tags">
-  <Project Name="sql1" Path="sql1/sql1.project" Active="Yes"/>
+  <Project Name="sql1" Path="sql1/sql1.project" Active="No"/>
   <Project Name="wx1" Path="wx1/wx1.project" Active="No"/>
-  <Project Name="AgendaSQL" Path="AgendaSQL/AgendaSQL.project" Active="No"/>
+  <Project Name="AgendaSQL" Path="AgendaSQL/AgendaSQL.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
