@@ -1,6 +1,6 @@
 #labels wxwidgets,documentacion,Phase-Implementation
 == Listas de Clases de WX ==
-
+ * [http://docs.wxwidgets.org/stable/wx_classref.html#classref]
  * [http://wiki.wxwidgets.org/Official_Classes]
  * [http://wiki.wxwidgets.org/Documentation]
 
