@@ -10,6 +10,7 @@ class Contacto {
 	string nombre;
    string apellido;
    string dni;
+   string direccion;
    string localidad;
    int telefonos[3];
    bool borrado;
