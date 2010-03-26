@@ -3,5 +3,6 @@
  * [http://docs.wxwidgets.org/stable/wx_classref.html#classref]
  * [http://wiki.wxwidgets.org/Official_Classes]
  * [http://wiki.wxwidgets.org/Documentation]
+ * [http://zetcode.com/tutorials/wxwidgetstutorial/]
 
 == Tutorial ==
