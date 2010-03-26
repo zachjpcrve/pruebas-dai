@@ -3,11 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 using namespace std;
 
 bool imprimir_operacion(int number1, int number2, char sign);
-int numerear(char* introducido);
+bool numerear(int &destino, string origen);
 
 int main(){
 	sqlite3 *miDB;	         // Creo un objeto de tipo sqlite para interactuar con la base de datos.
@@ -45,18 +46,15 @@ int main(){
 		
 		if(opcion=="1"){
 			char signo;//, *temp;
-			int numero1,numero2;
+			int numero1=0,numero2=0;
 			string temp;
 			
-			cout << endl << "Introduce el primer numero entero de la operacion:" << endl;
-			cin >> numero1;
-
-			//numero1=numerear(temp);				//creo numero1
-			cout << "Introduce un signo: + - * / y el segundo numero entero" << endl;
+			cout << endl << "Introduce una operación separada por espacios. Ej: '4 + 5' .No se permiten negativos ni decimales." << endl;
+			cin >> temp;
+			if(numerear(numero1,temp)){cout << endl << "*** Solo se permiten digitos en los numeros ***" << endl; continue;}
 			cin >> signo;
-			cout << "Introduce el segundo numero entero de la operacion:" << endl; //Hay que hacer que esta linea no salga siempre
-			cin >> numero2;
-			//numero2=numerear(temp);				//creo numero2
+			cin >> temp;
+			if(numerear(numero2,temp)){cout << endl << "*** Solo se permiten digitos en los numeros ***" << endl; continue;}
 	
 			cout << endl << "================================" << endl;
 			result = imprimir_operacion(numero1,numero2,signo); // imprimo la operación. True si el usuario metio mal el signo.
@@ -134,14 +132,14 @@ bool imprimir_operacion(int number1, int number2, char sign){
 	return false;					
 }
 //--------------------------------------------------------------------------------------------------------------
-int numerear(char* introducido){
-	int temp=strlen(introducido),temp2=0,temp3=1;
-	for(int i=1;i<=temp;i++,temp3*=10){						//Esta funcion combierte TODO a decimal
-		if(i==temp && introducido[0]=='-')					//Esta linea comprueva si el numero es negativo o positivo
-			temp2*=-1;
-		else
-			temp2+=(int(introducido[temp-i])-48)*temp3;		//Esto va creando el numero a partier de un char*
+
+// Convierte un string a integer. Si se encuentra algun caracter que no sea un digito se devuelve True.
+bool numerear(int &destino, string origen){
+	for(int i =0 ; i < origen.length() ; i++){
+		if( (origen[i] > 47 && origen[i] < 58))
+			destino += ((int) origen[i] - 48) * pow(10,origen.length()-1-i) ;
+		else return true;
 	}
-	return temp2;		
+	return false;
 }
 
