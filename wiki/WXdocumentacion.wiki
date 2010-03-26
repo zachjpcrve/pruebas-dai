@@ -1,7 +1,7 @@
 #labels wxwidgets,documentacion
 == Listas de Clases de WX ==
 
-*[http://wiki.wxwidgets.org/Official_Classes]
-*[http://wiki.wxwidgets.org/Documentation]
+* [http://wiki.wxwidgets.org/Official_Classes]
+* [http://wiki.wxwidgets.org/Documentation]
 
 == Tutorial ==
