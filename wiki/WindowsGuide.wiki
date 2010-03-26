@@ -1,0 +1,19 @@
+#labels Phase-Implementation,OpSys-Windows
+= Codelite =
+
+* Lo primero es bajarnos el cliente de windows. Tradicionalmente había que bajarse Codelite, GCC Mingw (GCC de windows) y las librerias WX por separado y configurarlo. Actualmente existe un instalador que viene con las tres cosas ya instaladas.[http://sourceforge.net/projects/codelite/files/Releases/ enlace de descarga] (el nombre debería ser algo estilo: codelite-2.x.0.3833-mingw4.4.0-wx2.8.10.exe ).
+
+== WxWidgets ==
+
+Ya que CodeLite viene con las librerias no es necesario instalar nada. La unica diferencia a la hora de compilar un programa es que se debería añadir la opcion "-mwindows" en proyecto->settings->linker->options. Llegados aquí deberíamos ser capaces de hacer un "build and run project" sin problemas.
+
+=== Lanzar Ejecutables ===
+
+Llegados a este momento el programa compilará dentro de codelite, pero si intentamos lanzar el ejecutable manualmente desde la carpeta nos dará un error de que no encuentra "wxmsw28ud_gcc_custom.dll". Para poder arreglar este problema debemos ir (en windows XP) a "MiPC->propiedades->opciones avanzadas->variables de entorno->variables del sistema->path->modificar" y añadimos al final ";C:\wxWidgets-2.8.10\lib\gcc_dll;C:\MinGW-4.4.0\bin" (cambiar ruta y versiones según haga falta).
+
+=== Ejecutables estáticos ===
+_Pendiente de hacer_
+
+== SQLite ==
+== QT ==
+== SDL ==
