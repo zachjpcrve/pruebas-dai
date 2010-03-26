@@ -2,17 +2,20 @@
 <CodeLite_Workspace Name="pruebas-dai" Database="./pruebas-dai.tags">
   <Project Name="sql1" Path="sql1/sql1.project" Active="No"/>
   <Project Name="wx1" Path="wx1/wx1.project" Active="No"/>
-  <Project Name="AgendaSQL" Path="AgendaSQL/AgendaSQL.project" Active="Yes"/>
+  <Project Name="AgendaSQL" Path="AgendaSQL/AgendaSQL.project" Active="No"/>
+  <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="wx1" ConfigName="Debug"/>
       <Project Name="AgendaSQL" ConfigName="Debug"/>
+      <Project Name="wxAgendaSQL" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="wx1" ConfigName="Debug"/>
       <Project Name="AgendaSQL" ConfigName="Release"/>
+      <Project Name="wxAgendaSQL" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
