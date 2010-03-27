@@ -5,7 +5,7 @@ IMPLEMENT_APP(AgendaApp)
 
 bool AgendaApp::OnInit()
 {
-	FrameAgenda *frame = new FrameAgenda(wxT("HOLA"),wxSize(768, 700));
+	FrameAgenda *frame = new FrameAgenda(wxT("Agenda"),wxSize(900, 650));
 	frame->Show(true);
     SetTopWindow(frame);
 	return true;
