@@ -2,8 +2,7 @@
 <CodeLite_Workspace Name="pruebas-dai" Database="./pruebas-dai.tags">
   <Project Name="sql1" Path="sql1/sql1.project" Active="No"/>
   <Project Name="wx1" Path="wx1/wx1.project" Active="No"/>
-  <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="No"/>
-  <Project Name="tetris" Path="tetris/tetris.project" Active="Yes"/>
+  <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>

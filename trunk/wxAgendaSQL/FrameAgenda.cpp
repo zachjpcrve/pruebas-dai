@@ -3,12 +3,16 @@
 FrameAgenda::FrameAgenda(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
 {
-	panel1 = new wxPanel(this,wxID_ANY,wxDefaultPosition,wxDefaultSize);
-	bRedimencionar = new wxButton(panel1, wxID_ANY, wxT("Tamaño"), wxPoint(100, 130));
-	eRedimencionar = new wxTextCtrl(panel1,wxID_ANY,wxEmptyString,wxPoint(100,100),wxDefaultSize); 
+	panel = new wxPanel(this,wxID_ANY,wxDefaultPosition,wxDefaultSize);
 	
-	bRedimencionar->SetFocus();
-
+	stTam = new wxStaticText(panel, wxID_ANY, wxT("Tamaño:"),wxPoint(50,105));
+	eRedimensionar = new wxTextCtrl(panel,wxID_ANY,wxEmptyString, wxPoint(110, 100)); 
+	bRedimensionar = new wxButton(panel, wxID_ANY, wxT("&Aceptar"), wxPoint(190, 100));
+	
+	stNombre = new wxStaticText(panel, wxID_ANY, wxT("&Nombre:"), wxPoint(50,170));
+	tcNombre = new wxTextCtrl(panel,wxID_ANY,wxEmptyString, wxPoint(110, 165));
+	
+	
 	Centre();
 }
 
@@ -17,4 +21,3 @@ FrameAgenda::FrameAgenda(const wxString& titulo, const wxSize& size)
 	Close(true);
 }
 */
-
