@@ -1,11 +1,21 @@
 Prueba de Python + SQLite
 
+===== Versiones =====
+
+- sql2:   Script basico.
+- sql2b:  Script con una clase propia + Multiples comentarios.
+
+===== Ejecucion =====
+
 SQLite viene incrustado en el pripio python por lo que no necesita que se instale ningún paquete. Para ejecutarlo se debe estar dentro de la carpeta y ejecutar:
 
-python sql2
+python sql2     |    python sql2b
 
 or
 
-./sql2
+./sql2          |    ./sql2b
 
-Nota: El archivo fue realizado con la opcion "rellenar tabulaciones con espacios" del editor, por lo que se debe rellenar con espacios la indentación. Es muy propable que si se meten tabulaciones el programa no funcione. Activa dicha opción en tu editor para evitar tabulaciones ocacionales.
+===== Notas =====
+
+El archivo fue realizado con la opcion "rellenar tabulaciones con espacios" del editor, por lo que se debe rellenar con espacios la indentación. Es muy propable que si se meten tabulaciones el programa no funcione. 
+Activa dicha opción en tu editor para evitar tabulaciones ocacionales.

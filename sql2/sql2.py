@@ -10,6 +10,7 @@ def conectarBD():
     try:
         con = lite.connect("database.db")
     except lite.Error, error:
+        print "Error: " + str(error)
         exit()
     cur = con.cursor() 
     cur.execute("create table if not exists tabla1(numero1 int, numero2 int, signo varchar(1));") 
@@ -78,7 +79,6 @@ def borrar():
 connection,cursor = conectarBD()
 opcion = "0"
 while opcion != "4":
-
     borrar()
     print '''Elige una opcion:
     1) Introducir nueva operacion
