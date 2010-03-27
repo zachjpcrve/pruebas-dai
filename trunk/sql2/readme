@@ -1,0 +1,11 @@
+Prueba de Python + SQLite
+
+SQLite viene incrustado en el pripio python por lo que no necesita que se instale ningún paquete. Para ejecutarlo se debe estar dentro de la carpeta y ejecutar:
+
+python sql2
+
+or
+
+./sql2
+
+Nota: El archivo fue realizado con la opcion "rellenar tabulaciones con espacios" del editor, por lo que se debe rellenar con espacios la indentación. Es muy propable que si se meten tabulaciones el programa no funcione. Activa dicha opción en tu editor para evitar tabulaciones ocacionales.

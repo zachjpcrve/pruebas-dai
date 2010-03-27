@@ -84,4 +84,6 @@
     <File Name="FrameAgenda.h"/>
     <File Name="main.h"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
