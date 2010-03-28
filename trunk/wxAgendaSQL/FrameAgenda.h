@@ -4,18 +4,15 @@ class FrameAgenda : public wxFrame
 {
 private:
 	//Usaremos un layout para que se redimensionen bien los objetos
-	wxBoxSizer *bsLayout;
+	wxBoxSizer *bsLayout1;
 	
 	wxPanel *panel;
-	wxButton *bRedimensionar;
-	wxStaticText *stTam;
-	wxTextCtrl *eRedimensionar;
-	wxStaticText *stNombre;
+	wxTextCtrl *tcTam;
 	wxTextCtrl *tcNombre;
-	wxStaticText *stApellido;
-	wxTextCtrl *tcApellido;
-	wxStaticText *stDni;
-	wxTextCtrl *tcDni;
+	//wxTextCtrl *tcApellido;
+	//wxTextCtrl *tcDni;
+	wxButton *bRedimensionar;	
+
 public:
     FrameAgenda(const wxString& title, const wxSize& size);
 
