@@ -3,6 +3,7 @@
   <Project Name="sql1" Path="sql1/sql1.project" Active="No"/>
   <Project Name="wx1" Path="wx1/wx1.project" Active="No"/>
   <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="Yes"/>
+  <Project Name="otros" Path="otros.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
@@ -10,6 +11,7 @@
       <Project Name="AgendaSQL" ConfigName="Debug"/>
       <Project Name="wxAgendaSQL" ConfigName="Debug"/>
       <Project Name="tetris" ConfigName="Debug"/>
+      <Project Name="otros" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
@@ -17,6 +19,7 @@
       <Project Name="AgendaSQL" ConfigName="Release"/>
       <Project Name="wxAgendaSQL" ConfigName="Release"/>
       <Project Name="tetris" ConfigName="Release"/>
+      <Project Name="otros" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
