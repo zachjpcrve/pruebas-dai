@@ -5,4 +5,8 @@
 
 == Tutoriales ==
 
+=== General ===
  * [http://zetcode.com/tutorials/wxwidgetstutorial/]
+
+=== Sizers / Layouts ===
+ * [http://neume.sourceforge.net/sizerdemo/]
