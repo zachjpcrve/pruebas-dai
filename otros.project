@@ -85,4 +85,6 @@
   <VirtualDirectory Name="wxAgendaSQL">
     <File Name="wxAgendaSQL/TODO"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
