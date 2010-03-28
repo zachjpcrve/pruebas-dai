@@ -90,6 +90,7 @@ def numerear(cadena):
     else:
         return None,None,None   # Si hay menos de 3 palabras o mas, devolvemos None,None,None
 
+# Imprimir parecido al de C pero comprobando que se divida por 0.
 def imprimir_operacion(number1, number2, sign):
    if sign=="+":  print "%d %s %d = %d" % (number1,sign,number2,number1+number2)   # Print estilo C
    if sign=="-":  print "%d %s %d = %d" % (number1,sign,number2,number1-number2)
@@ -100,6 +101,7 @@ def imprimir_operacion(number1, number2, sign):
    except ZeroDivisionError:    # Si al intentarlo el error devuelve ZeroDivisionError (error de dividir por 0) no hacemos la operacion.
        print "%d %s %d = -No se puede-" % (number1,sign,number2)
 
+# Esta funcion comprueba que estes enCheckout | Browse | Linux o en Windows para hacer "cls" o "clear" en la consola al limpiarla.
 def borrar():
     if os.name == "nt": os.system("cls")        #Windows
     elif os.name == "posix": os.system("clear") # Unix
