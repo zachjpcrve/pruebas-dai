@@ -10,7 +10,7 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	
 	// Sizers
 	wxFlexGridSizer *fgSizer = new wxFlexGridSizer(2 ,2, 30, 10); //Layout flexible
-	wxBoxSizer *bSizer = new wxBoxSizer(wxVERTICAL);
+	wxBoxSizer *hbSizer = new wxBoxSizer(wxVERTICAL);
 	
 	// Le he cambiado el color al panel para diferenciarlo de la venta haciendo pruebas.
 	panel = new wxPanel(this, -1);
@@ -55,20 +55,16 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	fgSizer->AddGrowableCol(1,1); //Hacemos que se redimensione solo la columna 1
 	
 	//Este boxSizer horizontal lo usamos para poner 15px, de espacio entre la ventana y los widget
-	bSizer->Add(fgSizer, 1, wxALL | wxEXPAND, 15); 
+	hbSizer->Add(fgSizer, 1, wxALL | wxEXPAND, 15); 
 	
 	//Boton Aceptar
 	bAceptar = new wxButton(panel, -1, _("&Aceptar"));
-	bSizer->Add(bAceptar, 1, wxEXPAND); 
+	hbSizer->Add(bAceptar, 1, wxEXPAND); 
 	
-	panel->SetSizer(bSizer);
+	panel->SetSizer(hbSizer);
+	hbSizer->SetSizeHints(this);
 
 	Centre();
 
 }
 
-/*void Button::OnQuit(wxCommandEvent & WXUNUSED(event))
-{
-	Close(true);
-}
-*/
