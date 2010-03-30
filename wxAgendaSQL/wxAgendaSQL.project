@@ -10,8 +10,9 @@
   <VirtualDirectory Name="src">
     <File Name="ClassAgenda.cpp"/>
     <File Name="ClassContacto.cpp"/>
-    <File Name="FrameAgenda.cpp"/>
     <File Name="main.cpp"/>
+    <File Name="FramePrincipal.cpp"/>
+    <File Name="FrameNuevo.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
@@ -81,9 +82,10 @@
   <VirtualDirectory Name="Include">
     <File Name="ClassAgenda.h"/>
     <File Name="ClassContacto.h"/>
-    <File Name="FrameAgenda.h"/>
     <File Name="main.h"/>
+    <File Name="FramePrincipal.h"/>
+    <File Name="FrameNuevo.h"/>
   </VirtualDirectory>
-  <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
+  <Dependencies Name="Debug"/>
 </CodeLite_Project>

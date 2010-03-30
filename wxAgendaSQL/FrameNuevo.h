@@ -1,6 +1,6 @@
 #include <wx/wx.h>
 
-class FrameAgenda : public wxFrame
+class FrameNuevo : public wxFrame
 {
 private:
 	
@@ -16,7 +16,7 @@ private:
 	wxButton *bAceptar;
 
 public:
-    FrameAgenda(const wxString& title, const wxSize& size);
+    FrameNuevo(const wxString& title, const wxSize& size);
 
     //void OnQuit(wxCommandEvent & event);
 };
