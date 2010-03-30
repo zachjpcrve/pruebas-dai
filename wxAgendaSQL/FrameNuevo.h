@@ -17,6 +17,4 @@ private:
 
 public:
     FrameNuevo(const wxString& title, const wxSize& size);
-
-    //void OnQuit(wxCommandEvent & event);
 };
