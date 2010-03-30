@@ -8,7 +8,12 @@ private:
 	wxTextCtrl *tcNombre;
 	wxTextCtrl *tcApellido;
 	wxTextCtrl *tcDni;
-	wxButton *bRedimensionar;	
+	wxTextCtrl *tcDirec;
+	wxTextCtrl *tcLocal;
+	wxTextCtrl *tcTlfn1;
+	wxTextCtrl *tcTlfn2;
+	wxTextCtrl *tcTlfn3;
+	wxButton *bAceptar;
 
 public:
     FrameAgenda(const wxString& title, const wxSize& size);
