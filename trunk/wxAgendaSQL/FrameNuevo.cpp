@@ -65,4 +65,9 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	hbSizer->SetSizeHints(this);
 
 	Centre();
+	Connect(wxEVT_CLOSE_WINDOW, wxCommandEventHandler(FrameNuevo::OnQuit));
+}
+
+void FrameNuevo::OnQuit(wxCommandEvent& WXUNUSED(event)){
+	Hide();
 }
