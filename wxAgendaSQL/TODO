@@ -1,5 +1,5 @@
-- Crear la interfaz grafica con layouts para que quede mejor organizada y se redimensionen los objetos al maximizar o minimizar
 - Primero hacer que la agenda funcione bien sin usar SQL.
 - Convertir la clase contacto en un nodo y la clase Agenda en L.Ordenada.
 - Crear una clase con todas las cosas de SQL.
 - Hacer pruebas de internalizacion (wx/intl o gettext?)
+-Conseguir entender y aplicar los eventos de teclado, para que al pulsar el enter en un edit, se fije el foco en el siguiente
