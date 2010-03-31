@@ -14,6 +14,8 @@ private:
 	wxTextCtrl *tcTlfn2;
 	wxTextCtrl *tcTlfn3;
 	wxButton *bAceptar;
+	
+	void OnQuit(wxCommandEvent& event);
 
 public:
     FrameNuevo(const wxString& title, const wxSize& size);
