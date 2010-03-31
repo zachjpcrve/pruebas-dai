@@ -3,14 +3,14 @@
 FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
 {		
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	// Creo la ventana de añadir contacto.
 	addContact = new FrameNuevo(_("Nuevo Contacto"), wxDefaultSize);
 	
 	// Creo sizer y se lo aplico al frame.
 	wxBoxSizer* vSizer = new wxBoxSizer( wxVERTICAL );
-	this->SetSizer( vSizer );
+	SetSizer( vSizer );
 	
 	// Creo la barra de menus
 	barra_menu = new wxMenuBar(0);
@@ -26,8 +26,8 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	menu_contacto->Insert(0, wxID_NEW, _("&Añadir Contacto"));
 	
 	// Pongo la barra en la ventana
-	this->SetMenuBar( barra_menu );
-	this->Centre();
+	SetMenuBar( barra_menu );
+	Centre();
 	
 	//Conectamos el boton del menu Añadir contacto con el evento onNewContact
 	Connect(wxID_NEW, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(FramePrincipal::OnNewContact));
@@ -36,10 +36,10 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 }
 //--------------------------------------------------------------------------
 void FramePrincipal::OnNewContact(wxCommandEvent& WXUNUSED(event)){
-	if(!addContact->IsShown()){
-		addContact->Show(true);		
+	if(addContact->IsVisible()){
+		addContact->Restore();
 	}
-	else addContact->SetFocus();
+	else addContact->Show();
 }
 //---------------------------------------------------------------------------
 void FramePrincipal::OnQuit(wxCommandEvent& WXUNUSED(event)){
