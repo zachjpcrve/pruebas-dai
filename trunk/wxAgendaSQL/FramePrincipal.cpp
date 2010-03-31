@@ -1,11 +1,13 @@
 #include "FramePrincipal.h"
-#include "FrameNuevo.h"
 
 FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
 {		
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
+	// Creo la venta de añadir pero no la muestro
+	addContact = new FrameNuevo(_("Nuevo Contacto"), wxDefaultSize);
+
 	// Creo sizer y se lo aplico al frame.
 	wxBoxSizer* vSizer = new wxBoxSizer( wxVERTICAL );
 	this->SetSizer( vSizer );
@@ -34,18 +36,19 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 }
 //--------------------------------------------------------------------------
 void FramePrincipal::OnNewContact(wxCommandEvent& WXUNUSED(event)){
-	FrameNuevo* addContact = new FrameNuevo(_("Agenda"), wxDefaultSize);
-	
-	addContact->Show(true);
+	if(!addContact->IsShown()){
+		addContact->Show(true);
+	}
 }
 //---------------------------------------------------------------------------
 void FramePrincipal::OnQuit(wxCommandEvent& WXUNUSED(event)){
 	wxMessageDialog *dial = new wxMessageDialog(NULL,
-      _("¿Seguro que quieres salir?"), wxT("Question"),
+      _("¿Seguro que quieres salir?"), _("Question"),
       wxYES_NO | wxNO_DEFAULT | wxICON_QUESTION);
 
-  int ret = dial->ShowModal();
-  dial->Destroy();
-
-  if (ret == wxID_YES) Destroy();
+  if(dial->ShowModal() == wxID_YES) {
+	  addContact->Destroy();
+	  Destroy();
+  }
+  
 }

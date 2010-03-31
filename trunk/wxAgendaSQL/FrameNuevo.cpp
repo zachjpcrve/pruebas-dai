@@ -65,6 +65,4 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	hbSizer->SetSizeHints(this);
 
 	Centre();
-
 }
-
