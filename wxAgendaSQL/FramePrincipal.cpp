@@ -14,19 +14,21 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	
 	// Creo la barra de menus
 	barra_menu = new wxMenuBar(0);
-	
-	// Menu Archivo
-	menu_archivo = new wxMenu();
+	menu_archivo = new wxMenu(); 	// Menu Archivo
 	barra_menu->Append( menu_archivo, _("&Archivo") ); 
 	menu_archivo->Insert(0,wxID_EXIT,_("&Salir"));
-	
-	// Menu Contacto
-	menu_contacto = new wxMenu();
+	menu_contacto = new wxMenu();	// Menu Contacto
 	barra_menu->Append( menu_contacto, _("&Contacto") ); 
 	menu_contacto->Insert(0, wxID_NEW, _("&Añadir Contacto"));
+	SetMenuBar( barra_menu ); 	// Pongo la barra en la ventana
 	
-	// Pongo la barra en la ventana
-	SetMenuBar( barra_menu );
+	// Barra de Herramientas 
+	wxBitmap imgAdd(wxT("new.png"));	// Aqui no se usa _() ya que no hay que traducir las rutas!
+	barra_herramientas = CreateToolBar();
+	barra_herramientas->AddTool(wxID_NEW, imgAdd , _("Exit application"));
+	barra_herramientas->Realize();
+
+	// Centramos
 	Centre();
 	
 	//Conectamos el boton del menu Añadir contacto con el evento onNewContact
