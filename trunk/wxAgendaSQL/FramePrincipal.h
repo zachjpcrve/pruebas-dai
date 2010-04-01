@@ -9,6 +9,8 @@ private:
 	wxMenu* menu_archivo;
 	wxMenu* menu_contacto;
 
+	wxToolBar* barra_herramientas;
+
 	//iremos asignando un Id para todos los evento que queramos
 	enum {ID_NEW=wxID_HIGHEST + 1};
 	

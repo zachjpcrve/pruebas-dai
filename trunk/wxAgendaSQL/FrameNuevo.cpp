@@ -27,7 +27,7 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	fgSizer->Add(tcApellido, 1, wxEXPAND);
 	
 	//Seccion DNI
-	tcDni = new wxTextCtrl(panel, -1, wxT("DNI"));
+	tcDni = new wxTextCtrl(panel, -1, _("DNI"));
 	fgSizer->Add(new wxStaticText(panel, -1, _("DNI:")));
 	fgSizer->Add(tcDni, 1, wxEXPAND);
 	

@@ -2,4 +2,5 @@
 - Convertir la clase contacto en un nodo y la clase Agenda en L.Ordenada.
 - Crear una clase con todas las cosas de SQL.
 - Hacer pruebas de internalizacion (wx/intl o gettext?)
--Conseguir entender y aplicar los eventos de teclado, para que al pulsar el enter en un edit, se fije el foco en el siguiente
+- Conseguir entender y aplicar los eventos de teclado, para que al pulsar el enter en un edit, se fije el foco en el siguiente
+- Diferencias entre SetFocus() y Restore() en Windows/Linux.
