@@ -60,7 +60,7 @@ class BaseDeDatos:
     def commit(self):    
         self.__cursor.commit() 
    
-    # Cerramos los procesos de memoria abiertos una vez vayamos a finalizar de unar la base de datos. 
+    # Cerramos los procesos de memoria abiertos una vez vayamos a finalizar de usar la base de datos. 
     def cerrar(self):
         self.__cursor.close()
         self.__connection.close()
@@ -101,14 +101,14 @@ def imprimir_operacion(number1, number2, sign):
    except ZeroDivisionError:    # Si al intentarlo el error devuelve ZeroDivisionError (error de dividir por 0) no hacemos la operacion.
        print "%d %s %d = -No se puede-" % (number1,sign,number2)
 
-# Esta funcion comprueba que estes enCheckout | Browse | Linux o en Windows para hacer "cls" o "clear" en la consola al limpiarla.
+# Esta funcion comprueba que estes en Windows para hacer "cls" o "clear" en la consola al limpiarla.
 def borrar():
     if os.name == "nt": os.system("cls")        #Windows
     elif os.name == "posix": os.system("clear") # Unix
     
 ################# Main  #################
 bd  = BaseDeDatos("database.db")   # Instanciamos nuestra clase personalizada de datos que ya conecta automaticamente a la BD.
-while bd.estaConectado():                   # Si nos conectamos mal a la base de datos o nos desconectamos el while no se ejecutara.
+while bd.estaConectado():                   # Si conectamos mal a la base de datos o nos desconectamos el while no se ejecutara.
     borrar()
     opcion = "0"
 

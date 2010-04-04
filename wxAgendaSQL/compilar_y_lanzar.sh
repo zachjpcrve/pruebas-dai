@@ -1,8 +1,9 @@
 # Script en bash personalizado que compila usando wxwidgets, y si el archivo resultante existe lo lanza.
 
-path=main
+nombre=wxAgendaSQL
 
-g++ $path.cpp `wx-config --libs` `wx-config --cxxflags` -o $path
-if [ -e $path ]; then
-	./$path
+g++ main.cpp FramePrincipal.cpp FrameNuevo.cpp `wx-config --libs` `wx-config --cxxflags` -o $nombre
+if [ -e $nombre ]; then
+	./$nombre
+	rm $nombre
 fi
