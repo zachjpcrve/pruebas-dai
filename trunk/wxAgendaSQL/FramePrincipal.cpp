@@ -25,7 +25,7 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	// Barra de Herramientas 
 	wxBitmap imgAdd(wxT("new.png"));	// Aqui no se usa _() ya que no hay que traducir las rutas!
 	barra_herramientas = CreateToolBar();
-	barra_herramientas->AddTool(wxID_NEW, imgAdd , _("Exit application"));
+	barra_herramientas->AddTool(wxID_NEW, imgAdd , _("Añadir nuevo contacto"));
 	barra_herramientas->Realize();
 
 	// Centramos

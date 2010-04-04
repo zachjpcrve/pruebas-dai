@@ -128,3 +128,10 @@ o para obtener tambien la wiki y branches:
 svn checkout *http*://pruebas-dai.googlecode.com/svn/ pruebas-dai-read-only
 
 Aunque un anónimo no puede enviar commits puede hacer cambios en el código y utilizar la utilidad de SVN para crear un parche y enviar ese parche al proyecto a través del correo electrónico. También puede pedir unirse al proyecto si tiene mucho interés.
+
+= TODO =
+  * branches y tags
+  * ignore svn propedit:ignore carpeta
+  * revert a revisiones anteriores disntintas a la actual un archivo
+  * svn update -r 5 (revertir todo a version anterior)
+  * bloquear un archivo
