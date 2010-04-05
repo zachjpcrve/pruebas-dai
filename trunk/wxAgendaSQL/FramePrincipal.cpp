@@ -3,15 +3,9 @@
 FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
 {		
-	SetSizeHints( wxDefaultSize, wxDefaultSize );
-	
 	// Creo la ventana de añadir contacto.
 	addContact = new FrameNuevo(_("Nuevo Contacto"), wxDefaultSize);
-	
-	// Creo sizer y se lo aplico al frame.
-	wxBoxSizer* vSizer = new wxBoxSizer( wxVERTICAL );
-	SetSizer( vSizer );
-	
+
 	// Creo la barra de menus
 	barra_menu = new wxMenuBar(0);
 	menu_archivo = new wxMenu(); 	// Menu Archivo
@@ -27,6 +21,21 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	barra_herramientas = CreateToolBar();
 	barra_herramientas->AddTool(wxID_NEW, imgAdd , _("Añadir nuevo contacto"));
 	barra_herramientas->Realize();
+
+	// Creo el Grid
+	gContactos = new wxGrid(this, wxID_ANY,wxDefaultPosition, wxDefaultSize);
+	gContactos->CreateGrid(12, 8);	// Numero de filas y columnas
+	wxString columnas[8] = {_("Nombre"),_("Apellido"),_("DNI"),_("Direccion"),_("Localidad"),_("Telefono1"),_("Telefono2"),_("Telefono3")};
+	for(int i=0; i<8;i++)
+		gContactos->SetColLabelValue(i,columnas[i]);
+	//gContactos->Fit();	// Descomentar para que las columnas tengan tamaños distintos
+	//this->SetClientSize(gContactos->GetSize());	// Esto no sé que hace exactamente
+
+	// Creo sizer y se lo aplico al frame.
+	wxBoxSizer* vSizer = new wxBoxSizer( wxVERTICAL );
+	vSizer->Add(gContactos,1,wxEXPAND);	// no funciona, no se expande y tal.
+	SetSizer( vSizer );
+	vSizer->SetSizeHints(this);
 
 	// Centramos
 	Centre();

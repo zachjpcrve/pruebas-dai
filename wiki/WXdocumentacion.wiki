@@ -7,6 +7,7 @@
 
 === General ===
  * [http://zetcode.com/tutorials/wxwidgetstutorial/]
+ * [http://www.scribd.com/doc/2470492/Cross-Platform-GUI-Programming-with-wxWidgets/]
 
 === Sizers / Layouts ===
  * [http://neume.sourceforge.net/sizerdemo/]
