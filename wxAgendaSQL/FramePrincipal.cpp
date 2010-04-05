@@ -3,6 +3,8 @@
 FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
 {		
+	 panel = new wxPanel(this, -1);
+	
 	// Creo la ventana de añadir contacto.
 	addContact = new FrameNuevo(_("Nuevo Contacto"), wxDefaultSize);
 
@@ -23,18 +25,21 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	barra_herramientas->Realize();
 
 	// Creo el Grid
-	gContactos = new wxGrid(this, wxID_ANY,wxDefaultPosition, wxDefaultSize);
+	gContactos = new wxGrid(panel, wxID_ANY,wxDefaultPosition, wxDefaultSize);
 	gContactos->CreateGrid(12, 8);	// Numero de filas y columnas
 	wxString columnas[8] = {_("Nombre"),_("Apellido"),_("DNI"),_("Direccion"),_("Localidad"),_("Telefono1"),_("Telefono2"),_("Telefono3")};
 	for(int i=0; i<8;i++)
 		gContactos->SetColLabelValue(i,columnas[i]);
+	
+	gContactos->AutoSize(); //Ajusta las columnas al tamaño del nombre de la misma
 	//gContactos->Fit();	// Descomentar para que las columnas tengan tamaños distintos
 	//this->SetClientSize(gContactos->GetSize());	// Esto no sé que hace exactamente
 
 	// Creo sizer y se lo aplico al frame.
 	wxBoxSizer* vSizer = new wxBoxSizer( wxVERTICAL );
 	vSizer->Add(gContactos,1,wxEXPAND);	// no funciona, no se expande y tal.
-	SetSizer( vSizer );
+	
+	panel->SetSizer( vSizer );
 	vSizer->SetSizeHints(this);
 
 	// Centramos
