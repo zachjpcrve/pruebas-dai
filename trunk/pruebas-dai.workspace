@@ -5,7 +5,7 @@
   <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="Yes"/>
   <Project Name="otros" Path="otros.project" Active="No"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug" Selected="no">
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="wx1" ConfigName="Debug"/>
       <Project Name="AgendaSQL" ConfigName="Debug"/>

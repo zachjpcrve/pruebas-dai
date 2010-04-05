@@ -5,12 +5,14 @@
 class FramePrincipal : public wxFrame
 {
 private:
+	wxPanel *panel;
 	FrameNuevo* addContact;
 	wxMenuBar* barra_menu;
 	wxMenu* menu_archivo;
 	wxMenu* menu_contacto;
 	wxToolBar* barra_herramientas;
 	wxGrid* gContactos;
+	
 
 	//iremos asignando un Id para todos los evento que queramos
 	enum {ID_NEW=wxID_HIGHEST + 1};
