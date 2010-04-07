@@ -61,7 +61,7 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	
 	//Boton Aceptar
 	bAceptar = new wxButton(panel, ID_bACEPTAR, _("&Aceptar"));
-	hbSizer->Add(bAceptar, 1, wxEXPAND); 
+	hbSizer->Add(bAceptar, 0, wxALIGN_CENTER); 
 	
 	panel->SetSizer(hbSizer);
 	hbSizer->SetSizeHints(this);
@@ -77,8 +77,8 @@ void FrameNuevo::OnQuit(wxCommandEvent& WXUNUSED(event)){
 }
 
 void FrameNuevo::onNombreClick(wxCommandEvent& event){
-	Contacto* lista = new Contacto(tcNombre->GetValue(), tcApellido->GetValue(), 
+	/*Contacto* lista = new Contacto(tcNombre->GetValue(), tcApellido->GetValue(), 
 		tcDni->GetValue(), tcDirec->GetValue(), tcLocal->GetValue(), 
 		tcTlfn1->GetValue(),tcTlfn2->GetValue(),tcTlfn3->GetValue());
-	miAgenda->addContacto(lista);
+	miAgenda->addContacto(lista);*/
 }
