@@ -1,4 +1,6 @@
 #include "FrameNuevo.h"
+#include "ClassAgenda.h"
+#include "ClassContacto.h"
 
 FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
@@ -17,7 +19,7 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	panel->SetBackgroundColour(color1);
 	
 	//Seccion de Insercion de nombre
-	tcNombre = new wxTextCtrl(panel, -1, _("Nombre..."), wxDefaultPosition, wxSize(150,25)); //Al primer TextCtrl le pongo tamaño para que todos se asapten a una longitud determinada
+	tcNombre = new wxTextCtrl(panel, -1, _("Nombre..."), wxDefaultPosition, wxSize(150,25)); //Al primer TextCtrl le pongo tamaño para que todos se asapten a una longitud determinada)
 	fgSizer->Add(new wxStaticText(panel, -1, _("Nombre:")));
 	fgSizer->Add(tcNombre, 1, wxEXPAND);
 	
@@ -58,16 +60,25 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	hbSizer->Add(fgSizer, 1, wxALL | wxEXPAND, 15); 
 	
 	//Boton Aceptar
-	bAceptar = new wxButton(panel, -1, _("&Aceptar"));
+	bAceptar = new wxButton(panel, ID_bACEPTAR, _("&Aceptar"));
 	hbSizer->Add(bAceptar, 1, wxEXPAND); 
 	
 	panel->SetSizer(hbSizer);
 	hbSizer->SetSizeHints(this);
-
+	
 	Centre();
+	
 	Connect(wxEVT_CLOSE_WINDOW, wxCommandEventHandler(FrameNuevo::OnQuit));
+	Connect(ID_bACEPTAR, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FrameNuevo::onNombreClick));
 }
 
 void FrameNuevo::OnQuit(wxCommandEvent& WXUNUSED(event)){
 	Hide();
+}
+
+void FrameNuevo::onNombreClick(wxCommandEvent& event){
+	Contacto* lista = new Contacto(tcNombre->GetValue(), tcApellido->GetValue(), 
+		tcDni->GetValue(), tcDirec->GetValue(), tcLocal->GetValue(), 
+		tcTlfn1->GetValue(),tcTlfn2->GetValue(),tcTlfn3->GetValue());
+	miAgenda->addContacto(lista);
 }

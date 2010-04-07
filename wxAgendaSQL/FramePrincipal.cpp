@@ -1,4 +1,7 @@
 #include "FramePrincipal.h"
+#include "ClassAgenda.h"
+
+Agenda* miAgenda;
 
 FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
@@ -31,10 +34,6 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	for(int i=0; i<8;i++)
 		gContactos->SetColLabelValue(i,columnas[i]);
 	
-	gContactos->AutoSize(); //Ajusta las columnas al tamaño del nombre de la misma
-	//gContactos->Fit();	// Descomentar para que las columnas tengan tamaños distintos
-	//this->SetClientSize(gContactos->GetSize());	// Esto no sé que hace exactamente
-
 	// Creo sizer y se lo aplico al frame.
 	wxBoxSizer* vSizer = new wxBoxSizer( wxVERTICAL );
 	vSizer->Add(gContactos,1,wxEXPAND);	// no funciona, no se expande y tal.
@@ -44,6 +43,9 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 
 	// Centramos
 	Centre();
+	
+	//Empezamos a crear lo necesario para la agenda
+	miAgenda = new Agenda(5); 
 	
 	//Conectamos el boton del menu Añadir contacto con el evento onNewContact
 	Connect(wxID_NEW, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(FramePrincipal::OnNewContact));

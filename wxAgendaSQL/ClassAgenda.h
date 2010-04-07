@@ -3,6 +3,7 @@
 
 #include <string>
 #include "ClassContacto.h"
+#include <wx/grid.h>
 
 class Agenda { 
 private:
@@ -20,7 +21,7 @@ public:
    Contacto* buscar(string);
    void delContacto(string);
    void delContacLog(Contacto*);
-   //void listarAgenda(TListView*); //Pasamos un puntero a un listview
+   void listarAgenda(wxGrid*); //Pasamos un puntero a un listview
 
 };
 
