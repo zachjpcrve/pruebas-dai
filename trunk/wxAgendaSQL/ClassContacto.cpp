@@ -1,7 +1,4 @@
 #include "ClassContacto.h"
-#include <string.h>
-
-using namespace std;
 
 Contacto::Contacto(string c_dni,string c_nombre,string c_apellidos,string c_direccion,string c_localidad,int telefono1,int telefono2,int telefono3)
 {

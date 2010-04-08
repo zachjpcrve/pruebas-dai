@@ -1,4 +1,6 @@
-#include <string.h>
+#ifndef CONTACTO_H
+#define CONTACTO_H
+
 #include <iostream>
 
 using namespace std;
@@ -33,3 +35,5 @@ class Contacto {
 		void setLocalidad(string dato){localidad=dato;}
 		void setTelefonos(int* dato){for(int i=0;i<TELEFONOS;i++)telefonos[i]=dato[i];}
 };
+
+#endif // CONTACTO_H

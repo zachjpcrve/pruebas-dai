@@ -1,10 +1,12 @@
 #include <wx/wx.h>
 #include <wx/grid.h>
 #include "FrameNuevo.h"
+#include "ClassAgenda.h"
 
 class FramePrincipal : public wxFrame
 {
 private:
+	// Atributos graficos
 	wxPanel *panel;
 	FrameNuevo* addContact;
 	wxMenuBar* barra_menu;
@@ -13,10 +15,13 @@ private:
 	wxToolBar* barra_herramientas;
 	wxGrid* gContactos;
 	
-
-	//iremos asignando un Id para todos los evento que queramos
+	// Otros Atributos
+	Agenda* miAgenda;
+	
+	// Atributos de IDs (usamos un Enum)
 	enum {ID_NEW=wxID_HIGHEST + 1};
 	
+	// Atributos de Eventos
 	void OnNewContact(wxCommandEvent& event);
 	void OnQuit(wxCommandEvent& event);
 public:
