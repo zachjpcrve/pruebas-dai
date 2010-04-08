@@ -1,28 +1,16 @@
-#ifndef AGENDA_H
-#define AGENDA_H
-
-#include <string>
 #include "ClassContacto.h"
-#include <wx/grid.h>
+#include <string.h>
 
-class Agenda { 
-private:
-	Contacto** lista; //El vector de contactos que sera de punteros
-   int longitud, ocupado;
+using namespace std;
 
-   void aumentarAgenda();
-public:
-   //Constructor por defecto
-   //Agenda::Agenda(){};              
-   //Cosntruc personalizado
-   Agenda(int);
+class Agenda{
+	private:	
+		Contacto* primero;
+	public:
+		Agenda() {primero=NULL;}
 
-   void addContacto(Contacto*); //addconcatto debe comprobar si la agenda esta llena
-   Contacto* buscar(string);
-   void delContacto(string);
-   void delContacLog(Contacto*);
-   void listarAgenda(wxGrid*); //Pasamos un puntero a un listview
-
+		//Contacto* getPrimero(){return primero;}
+		
+		void push(string c_dni,string c_nombre,string c_apellidos,string direccion,string localidad,int telefono1,int telefono2,int telefono3);
+		void pop(string);
 };
-
-#endif // AGENDA_H

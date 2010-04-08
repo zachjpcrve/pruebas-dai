@@ -1,42 +1,17 @@
 #include "ClassContacto.h"
+#include <string.h>
 
-Contacto::Contacto()
-{
-	nombre = "";
-   apellido = "";
-   dni = "";
-   direccion = "";
-   localidad = "";
-   for (int i=0; i<3; i++) telefonos[i]=0;
-} 
-//--------------------------------------------------
-Contacto::Contacto(string nom, string ape, string nif, string direc, string local, int tel1, int tel2, int tel3)
-{
-   nombre = nom;
-   apellido = ape;
-   dni = nif;
-   direccion = direc;
-   localidad = local;
-   telefonos[0] = tel1;
-   telefonos[1] = tel2;
-   telefonos[2] = tel3;
-   borrado = false;
-}
-//---------------------------------------------------
-void Contacto::modificar(string nomb, string ape, string nif, string direc, string loca, int tel1, int tel2, int tel3)
-{
-   nombre = nomb;
-   apellido = ape;
-   dni = nif;
-   direccion = direc;
-   localidad = loca;
-   telefonos[0] = tel1;
-   telefonos[1] = tel2;
-   telefonos[2] = tel3;
-}
-//----------------------------------------------------
-Contacto::~Contacto()
-{
-}
+using namespace std;
 
-
+Contacto::Contacto(string c_dni,string c_nombre,string c_apellidos,string c_direccion,string c_localidad,int telefono1,int telefono2,int telefono3)
+{
+	dni=c_dni;
+	nombre=c_nombre;
+	apellidos=c_apellidos;
+	direccion=c_direccion;
+	localidad=c_localidad;
+	telefonos[0]=telefono1;
+	telefonos[1]=telefono2;
+	telefonos[2]=telefono3;
+	siguiente=NULL;
+}
