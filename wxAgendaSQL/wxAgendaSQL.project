@@ -28,7 +28,7 @@
       <Compiler Options="$(shell wx-config --cxxflags)" Required="yes" PreCompiledHeader=""/>
       <Linker Options="$(shell wx-config --libs)" Required="yes"/>
       <ResourceCompiler Options="$(shell wx-config --rcflags)" Required="no"/>
-      <General OutputFile="bin/Agenda" IntermediateDirectory="./Debug" Command="./bin/Agenda" CommandArguments="" WorkingDirectory="./" PauseExecWhenProcTerminates="yes"/>
+      <General OutputFile="Agenda" IntermediateDirectory="./Debug" Command="./Agenda" CommandArguments="" WorkingDirectory="./" PauseExecWhenProcTerminates="yes"/>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
         <PostConnectCommands/>
         <StartupCommands/>

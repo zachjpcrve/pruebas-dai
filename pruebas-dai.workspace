@@ -10,16 +10,15 @@
       <Project Name="wx1" ConfigName="Debug"/>
       <Project Name="AgendaSQL" ConfigName="Debug"/>
       <Project Name="wxAgendaSQL" ConfigName="Debug"/>
+      <Project Name="wx1" ConfigName="Debug"/>
+      <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="otros" ConfigName="Debug"/>
-      <Project Name="tetris" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="no">
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="wx1" ConfigName="Debug"/>
-      <Project Name="AgendaSQL" ConfigName="Release"/>
-      <Project Name="wxAgendaSQL" ConfigName="Release"/>
-      <Project Name="otros" ConfigName="Release"/>
-      <Project Name="tetris" ConfigName="Release"/>
+      <Project Name="sql1" ConfigName="Debug"/>
+      <Project Name="otros" ConfigName="Debug"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

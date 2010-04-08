@@ -84,6 +84,7 @@
   </VirtualDirectory>
   <VirtualDirectory Name="wxAgendaSQL">
     <File Name="wxAgendaSQL/TODO"/>
+    <File Name="wxAgendaSQL/compilar_y_lanzar.sh"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

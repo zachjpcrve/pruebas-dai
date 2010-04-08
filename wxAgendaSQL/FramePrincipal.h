@@ -1,6 +1,6 @@
 #include <wx/wx.h>
+#include <wx/grid.h>
 #include "FrameNuevo.h"
-#include "wx/grid.h"
 
 class FramePrincipal : public wxFrame
 {
