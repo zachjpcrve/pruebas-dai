@@ -4,3 +4,5 @@
 - Hacer pruebas de internalizacion (wx/intl o gettext?)
 - Conseguir entender y aplicar los eventos de teclado, para que al pulsar el enter en un edit, se fije el foco en el siguiente
 - Diferencias entre SetFocus() y Restore() en Windows/Linux.
+- ¿Guardar y Abrir usando tablas XML?
+- Integrar las imagenes con el ejecutable. ¿Compilación estatica en windows/linux?
