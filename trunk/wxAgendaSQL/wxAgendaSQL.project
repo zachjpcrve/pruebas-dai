@@ -13,6 +13,7 @@
     <File Name="main.cpp"/>
     <File Name="FramePrincipal.cpp"/>
     <File Name="FrameNuevo.cpp"/>
+    <File Name="ClassBaseDeDatos.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="Include">
     <File Name="ClassAgenda.h"/>
@@ -20,6 +21,7 @@
     <File Name="main.h"/>
     <File Name="FramePrincipal.h"/>
     <File Name="FrameNuevo.h"/>
+    <File Name="ClassBaseDeDatos.h"/>
   </VirtualDirectory>
   <Dependencies Name="Release"/>
   <Dependencies Name="Debug"/>
@@ -29,7 +31,7 @@
       <Linker Options="$(shell wx-config --libs)" Required="yes"/>
       <ResourceCompiler Options="$(shell wx-config --rcflags)" Required="no"/>
       <General OutputFile="Agenda" IntermediateDirectory="./Debug" Command="./Agenda" CommandArguments="" WorkingDirectory="./" PauseExecWhenProcTerminates="yes"/>
-      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="gdb">
         <PostConnectCommands/>
         <StartupCommands/>
       </Debugger>

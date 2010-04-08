@@ -9,7 +9,7 @@ class BaseDeDatos{
 	
 	public:
 		BaseDeDatos(string archivo);
-        void conectar();
+		void conectar();
 		void crearTabla();
 		void introducir( string dni, string nombre, string apellido, string direccion, string localidad, int telefono1, int telefono2, int telefono3 );
 		void prepararExtraer();

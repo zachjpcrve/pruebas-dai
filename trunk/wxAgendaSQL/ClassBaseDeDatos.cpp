@@ -1,6 +1,7 @@
 #include "ClassBaseDeDatos.h"
 
-BaseDeDatos::BaseDeDatos(string archivo){
+BaseDeDatos::BaseDeDatos(string archivo)
+{
 }
 
 void BaseDeDatos::conectar(){
