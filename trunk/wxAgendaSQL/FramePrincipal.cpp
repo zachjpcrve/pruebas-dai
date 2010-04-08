@@ -45,7 +45,7 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	Centre();
 	
 	//Empezamos a crear lo necesario para la agenda
-	miAgenda = new Agenda(5); 
+	miAgenda = new Agenda(); 
 	
 	//Conectamos el boton del menu Añadir contacto con el evento onNewContact
 	Connect(wxID_NEW, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(FramePrincipal::OnNewContact));
