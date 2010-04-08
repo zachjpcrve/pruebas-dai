@@ -1,5 +1,5 @@
 #include "FramePrincipal.h"
-#include "ClassAgenda.h"
+
 
 Agenda* miAgenda;
 
@@ -44,7 +44,7 @@ FramePrincipal::FramePrincipal(const wxString& titulo, const wxSize& size)
 	// Centramos
 	Centre();
 	
-	//Empezamos a crear lo necesario para la agenda
+	// Inicializamos el atributo agenda.
 	miAgenda = new Agenda(); 
 	
 	//Conectamos el boton del menu Añadir contacto con el evento onNewContact

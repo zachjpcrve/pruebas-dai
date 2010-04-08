@@ -2,6 +2,8 @@
 #include <string.h>
 #include "ClassContacto.h"
 
+using namespace std;
+
 class BaseDeDatos{
 	private:
 		sqlite3 *db;	         // Objeto de tipo sqlite donde se almacena la conexión con la base de datos.
@@ -13,6 +15,6 @@ class BaseDeDatos{
 		void crearTabla();
 		void introducir( string dni, string nombre, string apellido, string direccion, string localidad, int telefono1, int telefono2, int telefono3 );
 		void prepararExtraer();
-        Contacto* extraer();
-        void cerrar();
+		Contacto* extraer();
+		void cerrar();
 };
