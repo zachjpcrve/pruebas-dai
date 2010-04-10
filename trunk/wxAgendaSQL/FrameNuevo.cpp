@@ -1,6 +1,7 @@
 #include "FrameNuevo.h"
 #include "ClassAgenda.h"
 #include "ClassContacto.h"
+#include <wx/event.h>
 
 FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	: wxFrame(NULL, wxID_ANY, titulo, wxDefaultPosition, size)
@@ -22,12 +23,13 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	tcNombre = new wxTextCtrl(panel, -1, _("Nombre..."), wxDefaultPosition, wxSize(150,25)); //Al primer TextCtrl le pongo tamaño para que todos se asapten a una longitud determinada)
 	fgSizer->Add(new wxStaticText(panel, -1, _("Nombre:")));
 	fgSizer->Add(tcNombre, 1, wxEXPAND);
+	tcNombre->SetFocus();
 	
 	//Seccion de Apellido
 	tcApellido = new wxTextCtrl(panel, -1, _("Apellidos..."));
 	fgSizer->Add(new wxStaticText(panel, -1, _("Apellidos:")));
 	fgSizer->Add(tcApellido, 1, wxEXPAND);
-	
+
 	//Seccion DNI
 	tcDni = new wxTextCtrl(panel, -1, _("DNI"));
 	fgSizer->Add(new wxStaticText(panel, -1, _("DNI:")));
@@ -61,7 +63,7 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	
 	//Boton Aceptar
 	bAceptar = new wxButton(panel, ID_bACEPTAR, _("&Aceptar"));
-	hbSizer->Add(bAceptar, 0, wxALIGN_CENTER); 
+	hbSizer->Add(bAceptar, 0, wxALIGN_CENTER | wxBOTTOM, 50); 
 	
 	panel->SetSizer(hbSizer);
 	hbSizer->SetSizeHints(this);
@@ -70,15 +72,20 @@ FrameNuevo::FrameNuevo(const wxString& titulo, const wxSize& size)
 	
 	Connect(wxEVT_CLOSE_WINDOW, wxCommandEventHandler(FrameNuevo::OnQuit));
 	Connect(ID_bACEPTAR, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(FrameNuevo::onNombreClick));
+	Connect(ID_tcNOMBRE, wxEVT_KEY_DOWN, wxKeyEventHandler(FrameNuevo::onKeyEvent));
 }
-
+//----------------------------------------------------------
 void FrameNuevo::OnQuit(wxCommandEvent& WXUNUSED(event)){
 	Hide();
 }
-
+//----------------------------------------------------------
 void FrameNuevo::onNombreClick(wxCommandEvent& event){
 	/*Contacto* lista = new Contacto(tcNombre->GetValue(), tcApellido->GetValue(), 
 		tcDni->GetValue(), tcDirec->GetValue(), tcLocal->GetValue(), 
 		tcTlfn1->GetValue(),tcTlfn2->GetValue(),tcTlfn3->GetValue());
 	miAgenda->addContacto(lista);*/
+}
+//---------------------------------------------------------
+void FrameNuevo::onKeyEvent(wxKeyEvent& eventKey){
+	if (eventKey.GetKeyCode()==WXK_RETURN) tcApellido->SetFocus();
 }
