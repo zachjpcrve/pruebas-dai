@@ -2,7 +2,7 @@
 
 nombre=wxAgendaSQL
 
-g++ main.cpp FramePrincipal.cpp FrameNuevo.cpp ClassAgenda.cpp ClassContacto.cpp `wx-config --libs` `wx-config --cxxflags` -o $nombre
+g++ main.cpp FramePrincipal.cpp FrameNuevo.cpp ClassAgenda.cpp ClassContacto.cpp ClassBaseDeDatos.cpp `wx-config --libs` `wx-config --cxxflags` -o $nombre
 if [ -e $nombre ]; then
 	./$nombre
 	rm $nombre
