@@ -58,10 +58,11 @@ class BaseDeDatos:
     # Utilizando este comando guardaremos los cambios realizados en la BD que actualmente estan en memoria en el fichero.
     # Es importante usarlo periodicamente para ir guardando los cambios. Si no se usa se perdera todo al cerrar la BD.    
     def commit(self):    
-        self.__cursor.commit() 
+        self.__connection.commit() 
    
     # Cerramos los procesos de memoria abiertos una vez vayamos a finalizar de usar la base de datos. 
     def cerrar(self):
+        self.commit()
         self.__cursor.close()
         self.__connection.close()
         self.__conectado = False
