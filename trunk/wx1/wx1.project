@@ -10,6 +10,7 @@
   <VirtualDirectory Name="wx1">
     <File Name="hola_mundo.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
   <Settings Type="Executable">
     <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="$(shell wx-config --cxxflags)" Required="yes" PreCompiledHeader=""/>
@@ -47,5 +48,4 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
   </Settings>
-  <Dependencies Name="Debug"/>
 </CodeLite_Project>

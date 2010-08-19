@@ -3,7 +3,7 @@
 class FrameNuevo : public wxFrame
 {
 private:
-	
+
 	wxPanel *panel;
 	wxTextCtrl *tcNombre;
 	wxTextCtrl *tcApellido;
@@ -14,14 +14,15 @@ private:
 	wxTextCtrl *tcTlfn2;
 	wxTextCtrl *tcTlfn3;
 	wxButton *bAceptar;
-	
-	enum {ID_bACEPTAR=wxID_HIGHEST + 1, 
+	enum {ID_bACEPTAR=wxID_HIGHEST + 1,
 			ID_tcNOMBRE};
-	
-	
+
+
 	void OnQuit(wxCommandEvent&);
-	void onNombreClick(wxCommandEvent&);
+	//void onNombreClick(wxCommandEvent&);
 	void onKeyEvent(wxKeyEvent& eventKey);
+	void onAceptarClick(wxCommandEvent&);
+	void OnChar(wxKeyEvent&);
 public:
     FrameNuevo(const wxString& title, const wxSize& size);
 };
