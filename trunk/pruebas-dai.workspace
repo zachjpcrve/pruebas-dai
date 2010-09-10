@@ -2,8 +2,9 @@
 <CodeLite_Workspace Name="pruebas-dai" Database="./pruebas-dai.tags">
   <Project Name="sql1" Path="sql1/sql1.project" Active="No"/>
   <Project Name="wx1" Path="wx1/wx1.project" Active="No"/>
-  <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="Yes"/>
+  <Project Name="wxAgendaSQL" Path="wxAgendaSQL/wxAgendaSQL.project" Active="No"/>
   <Project Name="otros" Path="otros.project" Active="No"/>
+  <Project Name="py-Deutsch.Version.C" Path="py-Deutsch.Version.C/py-Deutsch.Version.C.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
@@ -13,12 +14,16 @@
       <Project Name="wx1" ConfigName="Debug"/>
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="otros" ConfigName="Debug"/>
+      <Project Name="py-Deutsch.Version.C" ConfigName="Debug"/>
+      <Project Name="py-Deutsch.Version.C" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="no">
+    <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="wx1" ConfigName="Debug"/>
       <Project Name="sql1" ConfigName="Debug"/>
       <Project Name="otros" ConfigName="Debug"/>
+      <Project Name="py-Deutsch.Version.C" ConfigName="Release"/>
+      <Project Name="py-Deutsch.Version.C" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
